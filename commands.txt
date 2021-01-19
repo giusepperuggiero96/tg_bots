@@ -1,0 +1,2 @@
+docker build -t tg_bot .
+docker run -it --rm -v ${PWD}:/script --name tg_bot_r tg_bot python ./script/binance.py
