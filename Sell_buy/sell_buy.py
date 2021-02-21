@@ -9,11 +9,16 @@ from hashlib import sha256
 from urllib.parse import urlencode
 
 # Security token
-TOKEN = '1553942594:AAEnNEypAogyH2czZtwrJBNZGZfHPu9yl9U'
+KEY_FILE = 'keys.yaml'
+
+with open(os.path.dirname(__file__) + '/../{}'.format(KEY_FILE), 'r') as key_file:
+    keys = yaml.load(key_file, yaml.SafeLoader)
+
+TOKEN = keys['Sell_buy']['telegram']
 
 # Binance 
-API_KEY = 'L9RFUCd4nawpwyUq7DkF145MOc2rIPrrYTdhQqbZvpGOoBsY8ifubxqkS2ZesAMB'
-SECRET_KEY = 'llqnHn0VyT5rrWaSSCRkq3nP0ZFSTps6qw0zmryS8vBCPJBfXIsMjkVAtJM9PFbV'
+API_KEY = keys['Sell_buy']['binance-key']
+SECRET_KEY = keys['Sell_buy']['binance-secret']
 
 api_endpoint = 'https://api.binance.com'
 

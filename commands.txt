@@ -1,2 +1,2 @@
 docker build -t tg_bot .
-docker run -it --rm -v ${PWD}:/script --name tg_bot_r tg_bot python ./script/binance.py
+docker run -it --rm -v $PWD/Price_alert:/script -w /script --name tg_bot_r tg_bot python price_alert.py

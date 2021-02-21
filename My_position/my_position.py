@@ -9,17 +9,22 @@ from hashlib import sha256
 from urllib.parse import urlencode
 
 # Security token
-TOKEN = '1539303121:AAHw66BTjvH5Cyv4ucQZT2JePaCo8FW-RZA'
+KEY_FILE = 'keys.yaml'
+
+with open(os.path.dirname(__file__) + '/../{}'.format(KEY_FILE), 'r') as key_file:
+    keys = yaml.load(key_file, yaml.SafeLoader)
+
+TOKEN = keys['My_position']['telegram']
 
 # Binance 
-API_KEY = 'L9RFUCd4nawpwyUq7DkF145MOc2rIPrrYTdhQqbZvpGOoBsY8ifubxqkS2ZesAMB'
-SECRET_KEY = 'llqnHn0VyT5rrWaSSCRkq3nP0ZFSTps6qw0zmryS8vBCPJBfXIsMjkVAtJM9PFbV'
+API_KEY = keys['My_position']['binance-key']
+SECRET_KEY = keys['My_position']['binance-secret']
 
 api_endpoint = 'https://api.binance.com'
 api_req = '/sapi/v1/capital/config/getall'
 
 # Coinmarketcap 
-CMC_TOKEN = '99f7685c-3be9-4b22-8648-8da0c4ad18ef'
+CMC_TOKEN = keys['My_position']['coinmarkecap']
 api_cmc = ' https://pro-api.coinmarketcap.com/v1/tools/price-conversion'
 CMC_ENABLED = True
 

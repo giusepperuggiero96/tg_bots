@@ -8,4 +8,4 @@ Bot presenti nella repo:
 
 Utilizzo:
 Sono configurati per essere usati con docker, ma anche un virtual enviroment python va più che bene.
-#### Configurare il file .envexample con le proprie chiavi e rinominarlo .env
+#### Configurare il file keysexample.yaml con le proprie chiavi e rinominarlo keys.yaml

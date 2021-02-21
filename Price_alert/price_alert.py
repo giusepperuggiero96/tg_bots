@@ -1,9 +1,11 @@
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 from enum import Enum, auto
+import os.path
 import requests
 import datetime as dt
 import time
+import yaml
 
 class States(Enum):
     IN_RANGE_SEND = auto()
@@ -24,7 +26,12 @@ class SendStates:
 
 
 # Security token
-TOKEN = "1574304353:AAEwDW1PZYmXkrPsqMKScacgZN-0vrJL5DA"
+KEY_FILE = 'keys.yaml'
+
+with open(os.path.dirname(__file__) + '/../{}'.format(KEY_FILE), 'r') as key_file:
+    keys = yaml.load(key_file, yaml.SafeLoader)
+
+TOKEN = keys['Price_alert']['telegram']
 
 coins = ["BTC", "ETH"]
 

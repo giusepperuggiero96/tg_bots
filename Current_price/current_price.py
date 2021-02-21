@@ -5,7 +5,12 @@ import datetime as dt
 import time
 
 # Security token
-TOKEN = '1498763823:AAG8NtF0tTvW1qmoUwl6VBm7QvHoqRyxVv0'
+KEY_FILE = 'keys.yaml'
+
+with open(os.path.dirname(__file__) + '/../{}'.format(KEY_FILE), 'r') as key_file:
+    keys = yaml.load(key_file, yaml.SafeLoader)
+
+TOKEN = keys['Current_price']['telegram']
 
 symbols = []
 base = []

@@ -1,0 +1,16 @@
+Current_price:
+  telegram: 
+
+My_position:
+  telegram: 
+  binance-key: 
+  binance-secret: 
+  coinmarketcap: 
+
+Price_alert:
+  telegram: 
+
+Sell_buy:
+  telegram: 
+  binance-key: 
+  binance-secret: 
