@@ -3,6 +3,8 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Callb
 import requests
 import datetime as dt
 import time
+import os.path
+import yaml
 
 # Security token
 KEY_FILE = 'keys.yaml'

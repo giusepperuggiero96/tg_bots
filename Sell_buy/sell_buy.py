@@ -5,6 +5,8 @@ import json
 import datetime
 import time
 import hmac
+import os.path
+import yaml
 from hashlib import sha256
 from urllib.parse import urlencode
 
