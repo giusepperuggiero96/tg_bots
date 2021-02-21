@@ -72,18 +72,18 @@ def position_fcn(update, context):
     tot_value = 0
 
     for i in range(0, len(resp.json())):
-        if resp.json()[i]['free'] != '0':
+        if resp.json()[i]['free'] != '0' or resp.json()[i]['locked'] != '0':
             my_coins.append(resp.json()[i])
 
             if CMC_ENABLED:
-                cmc_parameters['amount'] = resp.json()[i]['free']
+                cmc_parameters['amount'] = str(float(resp.json()[i]['free']) + float(resp.json()[i]['locked']))
                 cmc_parameters['symbol'] = resp.json()[i]['coin']
                 cmc_resp = requests.get(api_cmc, params=cmc_parameters, headers=cmc_headers)
                 tot_value += float(cmc_resp.json()['data']['quote']['EUR']['price'])
-                update.message.reply_text('{}\nQuantità: {}\nValore(€): {:.4f}'.format(resp.json()[i]['name'], resp.json()[i]['free'], float(cmc_resp.json()['data']['quote']['EUR']['price'])))
+                update.message.reply_text('{}\nQuantità: {}\nValore(€): {:.4f}'.format(resp.json()[i]['name'], str(float(resp.json()[i]['free']) + float(resp.json()[i]['locked'])), float(cmc_resp.json()['data']['quote']['EUR']['price'])))
                 cmc_resp.close()
             else:
-                update.message.reply_text('{}\nQuantità: {}'.format(resp.json()[i]['name'], resp.json()[i]['free']))
+                update.message.reply_text('{}\nQuantità: {}'.format(resp.json()[i]['name'], str(float(resp.json()[i]['free']) + float(resp.json()[i]['locked']))))
 
     resp.close()
 
