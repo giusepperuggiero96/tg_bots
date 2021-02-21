@@ -26,7 +26,7 @@ api_endpoint = 'https://api.binance.com'
 api_req = '/sapi/v1/capital/config/getall'
 
 # Coinmarketcap 
-CMC_TOKEN = keys['My_position']['coinmarkecap']
+CMC_TOKEN = keys['My_position']['coinmarketcap']
 api_cmc = ' https://pro-api.coinmarketcap.com/v1/tools/price-conversion'
 CMC_ENABLED = True
 
